@@ -5,10 +5,26 @@ const systemStore = useSystemStore()
 systemStore.init()
 
 listenerAuthCode()
+
+useDark({
+  selector: 'html',
+  attribute: 'class',
+  valueDark: 'dark',
+  valueLight: 'light'
+})
 </script>
 
 <template>
   <router-view v-if="systemStore.pass" />
+  <div v-else class="flex-center wh-100">
+    <a-result
+      :status="null"
+      title="系统异常"
+      subtitle="获取系统配置失败，请检查后端程序运行是否正常！"
+    >
+      <template #icon> <icon-face-frown-fill /> </template>
+    </a-result>
+  </div>
 </template>
 
 <style lang="scss">
@@ -33,5 +49,11 @@ listenerAuthCode()
   @include useTheme {
     @include scrollbar(5px, getVal(scrollColor));
   }
+}
+
+html,
+body,
+#app {
+  height: 100%;
 }
 </style>
