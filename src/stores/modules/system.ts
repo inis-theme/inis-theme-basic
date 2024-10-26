@@ -1,7 +1,7 @@
 import { defineStore } from 'pinia'
 
 export const useSystemStore = defineStore('systemStore', {
-  state: (): Partial<Type.SystemState> => ({
+  state: (): Partial<STORE.SystemState> => ({
     logo: undefined,
     site_name: undefined,
     sub_title: undefined,
@@ -15,14 +15,14 @@ export const useSystemStore = defineStore('systemStore', {
   actions: {
     async init() {
       if (this.hasSystemConfig) return
-      const { code, data } = await useConfigApi.sysConfig()
-      if (code === 200) {
-        this.$patch(data.json)
-      } else {
-        this.site_name = import.meta.env.APP_TITLE
-        this.logo = '/static/images/logo/logo.svg'
-        this.not_install = true
-      }
+      // const { code, data } = await useConfigApi.sysConfig()
+      // if (code === 200) {
+      //   this.$patch(data.json)
+      // } else {
+      //   this.site_name = import.meta.env.APP_TITLE
+      //   this.logo = '/static/images/logo/logo.svg'
+      //   this.not_install = true
+      // }
     }
   },
   persist: [

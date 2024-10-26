@@ -1,22 +1,18 @@
-namespace Type {
-  export interface Common<R = any, J = any> {
-    id: number
-    json?: J
-    result?: R
-    remark?: string
-    create_time: number
-    update_time: number
-    delete_time: number
-    [property: string]: any
+namespace TYPE {
+  export interface Options {
+    value: string
+    label: string
+  }
+  export interface Tree {
+    key: string
+    title: string
+    isLeaf?: boolean
+    children?: Tree[]
   }
 
-  export interface IList<T> {
-    data: T[]
-    page: number
+  export interface Pagination {
+    current: number
+    pageSize: number
     total: number
-  }
-
-  export interface Ids {
-    ids: number[]
   }
 }

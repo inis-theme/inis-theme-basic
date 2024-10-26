@@ -1,5 +1,11 @@
-namespace Type {
+namespace INIS {
   export declare type FileStatus = 'init' | 'uploading' | 'done' | 'error'
+
+  export interface Emoji {
+    qq?: string[]
+    tiktok?: string[]
+    bilibili?: string[]
+  }
 
   export interface Upload {
     path: string

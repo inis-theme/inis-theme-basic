@@ -138,7 +138,7 @@
 </template>
 
 <script setup lang="ts">
-import type { TableColumnData } from '@arco-design/web-vue'
+import type { TableColumnData, TableRowSelection } from '@arco-design/web-vue'
 
 const btnRef = ref()
 const tableRef = ref()
@@ -147,12 +147,12 @@ const { isFullscreen, toggle: toggleFullScreen } = useFullscreen(cardRef)
 
 const selected = defineModel<number[]>('selected', { default: [] })
 
-const rowSelection = reactive({
+const rowSelection = reactive<TableRowSelection>({
   type: 'checkbox',
   showCheckedAll: true
 })
 
-const pagination = defineModel<Global.Pagination>('pagination', {
+const pagination = defineModel<TYPE.Pagination>('pagination', {
   default: {
     current: 1,
     pageSize: 20,
@@ -160,7 +160,7 @@ const pagination = defineModel<Global.Pagination>('pagination', {
   }
 })
 
-const params = defineModel<Partial<Type.QueryParams>>('params', {
+const params = defineModel<any>('params', {
   default: {}
 })
 

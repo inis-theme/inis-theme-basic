@@ -44,7 +44,7 @@ class axiosRequest {
     })
   }
 
-  public get<T>(
+  get<T>(
     url: string,
     data?: any,
     auth?: boolean,
@@ -52,22 +52,22 @@ class axiosRequest {
   ) {
     return this.request<T>(url, 'get', data, auth, handleDownload)
   }
-  public post<T>(url: string, data?: any, auth?: boolean, headers?: any) {
+  post<T>(url: string, data?: any, auth?: boolean, headers?: any) {
     return this.request<T>(url, 'post', data, auth, headers)
   }
-  public delete<T>(url: string, data?: any, auth?: boolean) {
+  delete<T>(url: string, data?: any, auth?: boolean) {
     return this.request<T>(url, 'delete', data, auth)
   }
-  public put<T>(url: string, data?: any, auth?: boolean) {
+  put<T>(url: string, data?: any, auth?: boolean) {
     return this.request<T>(url, 'put', data, auth)
   }
-  public head<T>(url: string, data?: any, auth?: boolean) {
+  head<T>(url: string, data?: any, auth?: boolean) {
     return this.request<T>(url, 'head', data, auth)
   }
-  public patch<T>(url: string, data?: any, auth?: boolean) {
+  patch<T>(url: string, data?: any, auth?: boolean) {
     return this.request<T>(url, 'patch', data, auth)
   }
-  public upload<T>(
+  upload<T>(
     url: string,
     data?: any,
     auth?: boolean,

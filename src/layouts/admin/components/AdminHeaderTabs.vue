@@ -49,15 +49,15 @@ const methods = {
       }
     })
   },
-  removeTab: (index: number) => {
-    const delName = tabRoute.value[index].name
-    tabRoute.value.splice(index, 1)
+  removeTab: (index: number | string) => {
+    const delName = tabRoute.value[Number(index)].name
+    tabRoute.value.splice(Number(index), 1)
     if (route.name === delName) {
-      router.push(tabRoute.value[index - 1])
+      router.push(tabRoute.value[Number(index) - 1])
     }
   },
-  clickTab: (index: number) => {
-    const route = tabRoute.value[index]
+  clickTab: (index: number | string) => {
+    const route = tabRoute.value[Number(index)]
     router.push({ name: route.name!!, params: route.params })
   }
 }

@@ -39,7 +39,7 @@ const systemStore = useSystemStore()
 
 const { loading, setLoading, toggleLoading } = useLoading()
 
-const formModel: Partial<Type.SystemState> = reactive({
+const formModel: Partial<STORE.SystemState> = reactive({
   logo: systemStore.logo,
   site_name: systemStore.site_name,
   sub_title: systemStore.sub_title
@@ -63,15 +63,15 @@ const rules = {
 const methods = {
   handleSubmit: async () => {
     setLoading(true)
-    const { code, msg } = await useConfigApi.update({
-      key: 'SITE-CONFIG',
-      json: JSON.stringify(formModel)
-    })
-    toggleLoading()
-    ResMsg(code, msg)
-    if (code === 200) {
-      systemStore.$patch(formModel)
-    }
+    // const { code, msg } = await useConfigApi.update({
+    //   key: 'SITE-CONFIG',
+    //   json: JSON.stringify(formModel)
+    // })
+    // toggleLoading()
+    // ResMsg(code, msg)
+    // if (code === 200) {
+    //   systemStore.$patch(formModel)
+    // }
   }
 }
 </script>

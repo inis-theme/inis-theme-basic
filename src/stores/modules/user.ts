@@ -3,18 +3,18 @@ import { defineStore } from 'pinia'
 import { jwtDecode } from 'jwt-decode'
 
 export const useUserStore = defineStore('userStore', {
-  state: (): Partial<Type.UserLogin> => ({
+  state: (): Partial<INIS.Login> => ({
     token: undefined,
     user: undefined
   }),
 
   getters: {
-    role: (state) => {
-      if (state.token) {
-        const payload = jwtDecode<Type.JwtHeader>(state.token)
-        return payload.data.role
-      } else return undefined
-    },
+    // role: (state) => {
+    //   if (state.token) {
+    //     const payload = jwtDecode<INIS.JwtHeader>(state.token)
+    //     return payload.data.role
+    //   } else return undefined
+    // },
     hasLogin: (state) => !!state.token
   },
 
@@ -23,7 +23,7 @@ export const useUserStore = defineStore('userStore', {
       return false
     },
 
-    setUserInfo(data: Type.UserLogin) {
+    setUserInfo(data: INIS.Login) {
       this.$patch(data)
     },
 
@@ -36,7 +36,7 @@ export const useUserStore = defineStore('userStore', {
   persist: [
     {
       key: 'LOGIN-USER',
-      paths: ['user', 'token'],
+      pick: ['user', 'token'],
       storage: localStorage
     }
   ]
