@@ -7,6 +7,7 @@ interface ENV {
   APP_ROUTE_MODE: string
   APP_VERSION: string
   APP_OUT_DIR: string
+  APP_THEME_NAME: string
   [key: string]: any
 }
 interface AppState {

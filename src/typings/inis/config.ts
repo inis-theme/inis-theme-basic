@@ -12,6 +12,12 @@ namespace INIS {
     value: string
   }
 
+  export interface ThemeConfigJson {
+    logo: string
+    email: EmailConfigJson
+    site: SiteConfigJson
+  }
+
   export interface SiteConfigJson {
     description: string
     logo: string

@@ -4,7 +4,7 @@
       <div class="flex-yc g-5">
         <img :src="systemStore.logo" />
         <h1 v-if="!appStore.isMobile" class="title-color fs-24 fw-600">
-          {{ systemStore.site_name }}
+          {{ systemStore.site?.site_name }}
         </h1>
       </div>
     </div>

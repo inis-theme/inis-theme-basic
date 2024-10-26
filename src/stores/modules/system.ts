@@ -1,28 +1,29 @@
 import { defineStore } from 'pinia'
 
 export const useSystemStore = defineStore('systemStore', {
-  state: (): Partial<STORE.SystemState> => ({
-    logo: undefined,
-    site_name: undefined,
-    sub_title: undefined,
-    not_install: undefined
+  state: (): Partial<INIS.ThemeConfigJson> => ({
+    site: undefined
   }),
 
   getters: {
-    hasSystemConfig: (state) => !!state.site_name,
-    pass: (state) => !!state.site_name || state.not_install
+    pass: (state) => !!state.site
   },
   actions: {
     async init() {
-      if (this.hasSystemConfig) return
-      // const { code, data } = await useConfigApi.sysConfig()
-      // if (code === 200) {
-      //   this.$patch(data.json)
-      // } else {
-      //   this.site_name = import.meta.env.APP_TITLE
-      //   this.logo = '/static/images/logo/logo.svg'
-      //   this.not_install = true
-      // }
+      if (this.site) return
+      const { code, data } = await useConfigApi.one<INIS.ThemeConfigJson>(
+        `config:theme-${import.meta.env.APP_THEME_NAME || 'basic'}`
+      )
+      if (code === 200) {
+        this.$patch(data.json)
+      } else {
+        this.$patch({
+          site: {
+            site_name: import.meta.env.APP_TITLE,
+            logo: '/static/images/logo/logo.svg'
+          }
+        })
+      }
     }
   },
   persist: [

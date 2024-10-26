@@ -19,9 +19,9 @@
               allowClear
             />
           </a-form-item>
-          <a-form-item field="sub_title" label="系统副标题" validate-trigger="blur">
+          <!-- <a-form-item field="sub_title" label="系统副标题" validate-trigger="blur">
             <a-input v-model="formModel.sub_title" placeholder="请输入系统副标题..." allowClear />
-          </a-form-item>
+          </a-form-item> -->
         </a-form>
         <div class="flex-end mb-20">
           <a-button type="primary" :loading="loading" @click="methods.handleSubmit"
@@ -39,10 +39,11 @@ const systemStore = useSystemStore()
 
 const { loading, setLoading, toggleLoading } = useLoading()
 
-const formModel: Partial<STORE.SystemState> = reactive({
+const formModel: Partial<INIS.SiteConfigJson> = reactive({
   logo: systemStore.logo,
-  site_name: systemStore.site_name,
-  sub_title: systemStore.sub_title
+  site_name: systemStore.site?.site_name
+
+  // sub_title: systemStore.site?.sub_title
 })
 
 const rules = {
