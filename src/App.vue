@@ -17,11 +17,7 @@ useDark({
 <template>
   <router-view v-if="systemStore.pass" />
   <div v-else class="flex-center wh-100">
-    <a-result
-      :status="null"
-      title="系统异常"
-      subtitle="获取系统配置失败，请检查后端程序运行是否正常！"
-    >
+    <a-result :status="null" title="系统异常" subtitle="请检查后端程序是否正常运行！">
       <template #icon> <icon-face-frown-fill /> </template>
     </a-result>
   </div>
