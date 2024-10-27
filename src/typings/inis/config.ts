@@ -16,6 +16,7 @@ namespace INIS {
     logo: string
     email: EmailConfigJson
     site: SiteConfigJson
+    pass?: boolean
   }
 
   export interface SiteConfigJson {

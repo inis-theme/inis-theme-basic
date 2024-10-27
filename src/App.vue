@@ -16,10 +16,8 @@ useDark({
 
 <template>
   <router-view v-if="systemStore.pass" />
-  <div v-else class="flex-center wh-100">
-    <a-result :status="null" title="系统异常" subtitle="请检查后端程序是否正常运行！">
-      <template #icon> <icon-face-frown-fill /> </template>
-    </a-result>
+  <div class="flex-center wh-100" v-else>
+    <a-spin dot tip="疯狂加载中..." />
   </div>
 </template>
 
