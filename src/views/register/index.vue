@@ -7,7 +7,7 @@
       </div>
     </div>
 
-    <a-form class="mt-40" ref="formRef" :model="formModel" :rules="rules" autocomplete="off">
+    <a-form class="mt-30" ref="formRef" :model="formModel" :rules="rules" autocomplete="off">
       <a-form-item field="account" hide-label validate-trigger="blur">
         <a-input v-model="formModel.account" placeholder="请输入账号或邮箱" allow-clear>
           <template #prefix>
@@ -31,8 +31,11 @@
     </a-form>
 
     <a-button :loading="loading" @click="methods.handleLogin" class="w-100 mt-15" type="primary"
-      >登 录</a-button
+      >注 册</a-button
     >
+    <a-button @click="router.replace({ name: 'Login' })" class="w-100 mt-15" type="text">
+      返回登录
+    </a-button>
 
     <ThemeBtn class="theme-btn absolute" />
   </div>

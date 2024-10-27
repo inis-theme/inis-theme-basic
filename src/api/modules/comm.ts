@@ -3,16 +3,16 @@
  */
 export default class CommApi {
   /**
-   * 账号密码登录
+   * ### 账号密码登录
    * @param account 账号
    * @param password 密码
    */
   login(account: string, password: string) {
-    return request.post<INIS.Login>('/api/comm/login', { account, password })
+    return request.post<INIS.Login>('/api/comm/sign-in', { account, password })
   }
 
   /**
-   * 重置密码
+   * ### 重置密码
    * @param social 账号
    * @param code 验证码，为空自动获取验证码
    * @param password 密码
@@ -22,7 +22,7 @@ export default class CommApi {
   }
 
   /**
-   * 验证码登录
+   * ### 验证码登录
    * @param social 账号
    * @param code 验证码，为空自动获取验证码
    */
@@ -31,7 +31,7 @@ export default class CommApi {
   }
 
   /**
-   * 校验登录
+   * ### 校验登录
    * @param renew 续签有效时长，续签会发生token变更，请注意更换新的token
    */
   checkToken(renew?: string) {
@@ -39,7 +39,7 @@ export default class CommApi {
   }
 
   /**
-   * 注册账户
+   * ### 注册账户
    * @param social 邮箱或手机号
    * @param account 账号
    * @param password 密码
@@ -58,7 +58,7 @@ export default class CommApi {
   }
 
   /**
-   * 退出登录
+   * ### 退出登录
    */
   logout() {
     return request.delete<null>('/api/comm/logout', null, true)

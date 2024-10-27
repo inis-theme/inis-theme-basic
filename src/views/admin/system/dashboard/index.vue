@@ -2,8 +2,6 @@
   <div>控制台</div>
 </template>
 
-<script setup lang="ts">
-const userStore = useUserStore()
-</script>
+<script setup lang="ts"></script>
 
 <style lang="scss" scoped></style>

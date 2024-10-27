@@ -33,7 +33,7 @@
     <a-button :loading="loading" @click="methods.handleLogin" class="w-100 mt-15" type="primary">
       登 录
     </a-button>
-    <a-button @click="router.replace({ name: 'register' })" class="w-100 mt-15">
+    <a-button @click="router.replace({ name: 'Register' })" class="w-100 mt-15" type="text">
       注册账号
     </a-button>
 
@@ -73,7 +73,10 @@ const methods = {
   handleLogin: () => {
     formRef.value?.validate(async (valid: any) => {
       if (!valid) {
-        const { code, data, msg } = await useUserApi.login(formModel.value)
+        const { code, data, msg } = await useCommApi.login(
+          formModel.value.account!,
+          formModel.value.password!
+        )
         if (code === 200) {
           userStore.setUserInfo(data)
           ResMsg(code, msg)
@@ -81,7 +84,7 @@ const methods = {
           if (route.query.redirect) {
             router.replace({ path: decodeURIComponent(route.query.redirect as string) })
           } else {
-            router.replace({ name: 'Home' })
+            router.replace({ name: 'AdminHome' })
           }
         }
       }

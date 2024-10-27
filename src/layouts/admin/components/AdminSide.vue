@@ -2,7 +2,7 @@
   <div class="admin-side-wrap no-select">
     <div class="side-logo-wrap py-10 flex-center">
       <div class="flex-yc g-5">
-        <img :src="systemStore.logo" />
+        <img :src="systemStore.site?.logo" />
         <h1 v-if="!appStore.isMobile" class="title-color fs-24 fw-600">
           {{ systemStore.site?.site_name }}
         </h1>

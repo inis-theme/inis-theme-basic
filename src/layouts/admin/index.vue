@@ -18,7 +18,6 @@
 </template>
 
 <script setup lang="ts">
-import { useRoute } from 'vue-router'
 import useResponsive from '@/hooks/responsive'
 
 useResponsive(false)
