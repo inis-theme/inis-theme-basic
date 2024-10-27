@@ -12,9 +12,17 @@
 </template>
 
 <script setup lang="ts">
-import { useRoute } from 'vue-router'
+import { useHead } from '@vueuse/head'
 
-const route = useRoute()
+useHead({
+  meta: [
+    {
+      name: 'viewport',
+      content:
+        'width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no'
+    }
+  ]
+})
 </script>
 
 <style lang="scss" scoped>
