@@ -5,7 +5,8 @@ import type { AxiosProgressEvent } from 'axios'
  */
 export default class FileApi {
   /**
-   * 上传
+   * ### 文件简单上传
+   * ---
    * @param file 文件对象
    * @param path 文件路径
    * @param name 文件名
@@ -25,7 +26,8 @@ export default class FileApi {
   }
 
   /**
-   * 网图转base64
+   * ### 网图转base64
+   * ---
    * @param url 网图URL
    * @returns
    */

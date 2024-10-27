@@ -26,6 +26,7 @@
 
 <script setup lang="ts">
 import ADMIN_ROUTES from '@/router/routes/modules/admin'
+import { listenerRouteChange } from '@/utils/emitter/router'
 
 const route = useRoute()
 const router = useRouter()
@@ -35,16 +36,12 @@ const routeList = ADMIN_ROUTES[0].children || []
 const openKeys = ref<string[]>([String(route.matched[1]?.name)])
 const selectedKeys = ref<string[]>([String(route.name)])
 
-watch(
-  route,
-  (val) => {
-    selectedKeys.value = [val.name as string]
-    if (!openKeys.value.includes(val.matched[1]?.name as string)) {
-      openKeys.value.push(val.matched[1]?.name as string)
-    }
-  },
-  { immediate: true }
-)
+listenerRouteChange((val) => {
+  selectedKeys.value = [val.name as string]
+  if (!openKeys.value.includes(val.matched[1]?.name as string)) {
+    openKeys.value.push(val.matched[1]?.name as string)
+  }
+})
 
 const methods = {
   handleClick: (e: string) => {

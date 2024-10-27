@@ -20,6 +20,7 @@
 <script setup lang="ts">
 import ADMIN_ROUTES from '@/router/routes/modules/admin'
 import type { RouteRecordRaw, RouteRecordNameGeneric } from 'vue-router'
+import { listenerRouteChange } from '@/utils/emitter/router'
 
 interface TabRoute {
   name?: RouteRecordNameGeneric
@@ -62,17 +63,13 @@ const methods = {
   }
 }
 
-watch(
-  route,
-  (val) => {
-    const hasRoute = tabRoute.value.find((item) => item.name === val.name)
-    if (!hasRoute && !val.meta.fixed) {
-      tabRoute.value.push({ ...val })
-    }
-    curentRoute.value = val.name
-  },
-  { immediate: true }
-)
+listenerRouteChange((newRoute) => {
+  const hasRoute = tabRoute.value.find((item) => item.name === newRoute.name)
+  if (!hasRoute && !newRoute.meta.fixed) {
+    tabRoute.value.push({ ...newRoute })
+  }
+  curentRoute.value = newRoute.name
+})
 
 methods.initTabs()
 </script>
