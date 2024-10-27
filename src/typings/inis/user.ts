@@ -11,14 +11,14 @@ namespace INIS {
   interface auth {
     all: boolean
     group: {
-      ids: number[]
+      ids?: number[]
       list: authItem[]
     }
     pages: {
-      hash: string[]
+      hash?: string[]
     }
     rules: {
-      hash: string[]
+      hash?: string[]
     }
   }
 
@@ -32,7 +32,7 @@ namespace INIS {
   }
 
   interface level {
-    current: levelItem
+    curr: levelItem
     next?: levelItem
   }
 
@@ -44,26 +44,37 @@ namespace INIS {
     cover?: string
   }
 
+  interface userDisplay {
+    id: number
+    uid: number
+    avatar: string
+    description: string
+    exp: number
+    covers: string
+    create_time: number
+    update_time: number
+    delete_time: number
+  }
+
   export interface userResult {
     auth: auth
     level: level
+    display: userDisplay
   }
 
   export interface User extends Common<userResult, userJson> {
+    id: number
     account: string
-    avatar: string
-    count?: number
+    nickname: string
+    email: string
+    phone: string
+    status: string
+    invite_uid: number
+    gender: 'unknown' | 'girl' | 'boy'
     login_time: number
     description: string
-    gender: string
     password: string
-    title: string
-    email: string
-    id: number
-    exp: number
-    nickname: string
     source: string
-    auth_ids: number[]
   }
 
   export interface CheckToken {

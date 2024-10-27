@@ -38,7 +38,7 @@ $themes: (
     textColor: #c0c3c6,
     pureColor: $black-color,
     iniColor: #000,
-    borderColor: #333335,
+    borderColor: #494949,
     mutedColor: #8c8c8c,
     titleColor: #f2f6fc,
     keyColor: #f8fafc,
@@ -67,6 +67,7 @@ body {
   @include useTheme {
     * {
       --text-color: #{getVal(textColor)};
+      --border-color: #{getVal(borderColor)};
       --color-bg-2: #{getVal(pureColor)};
       --color-spin-layer-bg: #{rgba(getVal(iniColor), 0.4)};
     }

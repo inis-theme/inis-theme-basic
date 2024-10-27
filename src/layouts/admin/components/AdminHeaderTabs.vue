@@ -9,7 +9,7 @@
     <a-tab-pane v-for="(item, index) in tabRoute" :closable="!item.meta.fixed" :key="index">
       <template #title>
         <div class="flex-yc g-5">
-          <IconFont :name="item.meta.icon as string" class="mr-1" />
+          <IconFont v-if="item.meta.icon" :name="item.meta.icon as string" class="mr-1" />
           <span class="no-select"> {{ item.meta.title }}</span>
         </div>
       </template>
