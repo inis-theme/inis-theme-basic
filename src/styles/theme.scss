@@ -47,7 +47,6 @@ $themes: (
 );
 
 @function getVal($key) {
-  // $themeMap: map-get($themes, $curTheme);
   $themeMap: map.get($themes, $curTheme);
   @return map.get($themeMap, $key);
 }
@@ -64,11 +63,13 @@ $themes: (
   }
 }
 
-* {
+body {
   @include useTheme {
-    --text-color: #{getVal(textColor)};
-    --color-bg-2: #{getVal(pureColor)};
-    --color-spin-layer-bg: #{rgba(getVal(iniColor), 0.4)};
+    * {
+      --text-color: #{getVal(textColor)};
+      --color-bg-2: #{getVal(pureColor)};
+      --color-spin-layer-bg: #{rgba(getVal(iniColor), 0.4)};
+    }
 
     .title-color {
       color: getVal(titleColor);

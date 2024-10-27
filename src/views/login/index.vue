@@ -2,7 +2,7 @@
   <div class="login-page-wrap p-40 br-5 z-1 no-select relative">
     <div class="flex-center mt-10">
       <div class="flex-yc g-10">
-        <img :src="systemStore.logo" class="login-logo" />
+        <img :src="systemStore.site?.logo" class="login-logo" />
         <h2 class="login-title title-color fs-28 mr-10">登录</h2>
       </div>
     </div>

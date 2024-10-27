@@ -4,7 +4,6 @@ import { createApp } from 'vue'
 import { createPinia } from 'pinia'
 import directives from '@/directives/index'
 import { createPersistedState } from 'pinia-plugin-persistedstate'
-
 import '@icon-park/vue-next/styles/index.css'
 
 const pinia = createPinia()
