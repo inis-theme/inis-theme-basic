@@ -151,9 +151,16 @@ const methods = {
     height: 35px;
     padding-right: 12px;
     line-height: 35px;
+    font-weight: 600;
 
     @include useTheme {
       background-color: rgba(getVal(keyColor), 0.03) !important;
+    }
+  }
+
+  .arco-menu-inline-content {
+    .arco-menu-item-inner {
+      font-weight: 500 !important;
     }
   }
 }

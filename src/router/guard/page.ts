@@ -8,7 +8,7 @@ export default function setupPageGuard(router: Router) {
     // 发布路由跳转事件
     setRouteEmitter(to)
     // 设置页面标题
-    document.title = to.meta?.title ? `${to.meta.title} - ${title}` : title
+    document.title = to.meta?.title ? `${to.meta.title}-${title}` : title
   })
 
   // 安装页面跳转
