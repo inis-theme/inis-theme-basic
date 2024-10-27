@@ -8,6 +8,7 @@ const ADMIN_ROUTES: RouteRecordRaw[] = [
     name: 'Admin',
     component: AdminLayout,
     redirect: { name: 'admin-dashboard' },
+    meta: { needLogin: true },
     children: [
       {
         path: 'dashboard',

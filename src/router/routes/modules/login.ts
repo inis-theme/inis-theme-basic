@@ -15,6 +15,20 @@ const BASE_ROUTES: RouteRecordRaw[] = [
         meta: { title: '登录' }
       }
     ]
+  },
+  {
+    path: '/register',
+    name: 'Register',
+    component: LoginLayout,
+    redirect: { name: 'register' },
+    children: [
+      {
+        path: '',
+        name: 'register',
+        component: () => import('@/views/register/index.vue'),
+        meta: { title: '注册' }
+      }
+    ]
   }
 ]
 

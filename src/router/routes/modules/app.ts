@@ -2,8 +2,8 @@ import type { RouteRecordRaw } from 'vue-router'
 
 const APP_ROUTES: RouteRecordRaw[] = [
   {
-    path: '/',
-    name: 'Home',
+    path: '/admin',
+    name: 'AdminHome',
     redirect: { name: 'admin-dashboard' }
   },
   {

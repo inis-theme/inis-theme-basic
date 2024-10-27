@@ -3,11 +3,11 @@
     <div class="flex-center mt-10">
       <div class="flex-yc g-10">
         <img :src="systemStore.site?.logo" class="login-logo" />
-        <h2 class="login-title title-color fs-28 mr-10">登录</h2>
+        <h2 class="login-title title-color fs-28 mr-10">注册</h2>
       </div>
     </div>
 
-    <a-form class="mt-30" ref="formRef" :model="formModel" :rules="rules" autocomplete="off">
+    <a-form class="mt-40" ref="formRef" :model="formModel" :rules="rules" autocomplete="off">
       <a-form-item field="account" hide-label validate-trigger="blur">
         <a-input v-model="formModel.account" placeholder="请输入账号或邮箱" allow-clear>
           <template #prefix>
@@ -30,12 +30,9 @@
       </a-form-item>
     </a-form>
 
-    <a-button :loading="loading" @click="methods.handleLogin" class="w-100 mt-15" type="primary">
-      登 录
-    </a-button>
-    <a-button @click="router.replace({ name: 'register' })" class="w-100 mt-15">
-      注册账号
-    </a-button>
+    <a-button :loading="loading" @click="methods.handleLogin" class="w-100 mt-15" type="primary"
+      >登 录</a-button
+    >
 
     <ThemeBtn class="theme-btn absolute" />
   </div>
