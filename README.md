@@ -1,6 +1,6 @@
 # inis-theme-basic
 
-inis系统v4版本前端主题基础模板，基于vue3+vite5+arcoDesign搭建，已经内置后台管理基础功能，可直接使用。
+inis系统v4版本前端主题基础模板，基于vue3+vite5+arcoDesign搭建，内置后台管理基础功能，可直接使用。
 
 ## Recommended IDE Setup
 

@@ -3,7 +3,7 @@
     <a-avatar
       :size="30"
       object-fit="cover"
-      :image-url="`${appStore.env?.APP_BASE_API}${userStore.user?.avatar}`"
+      :image-url="`${userStore.user?.avatar}`"
       class="pointer"
     >
       {{ userStore.user?.nickname }}
